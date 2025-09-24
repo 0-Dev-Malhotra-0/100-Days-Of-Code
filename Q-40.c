@@ -45,27 +45,25 @@ int main()
 
     temp = comp;
     
-    while (temp > 0)
+    if (temp==0)
+    	result_digits = 1;
+    
+    else
     {
-        result_digits++;
-        temp /= 10;
-    }
+    	while (temp > 0)
+    	{
+        	result_digits++;
+        	temp /= 10;
+   		}
+	}
+	
 
     printf("1's complement : ");
     
-    if (comp != 0)
-    {
-    	for (i = 0 ; i < digits - result_digits ; i++)
-        printf("0");
-	
-    	printf("%d", comp);
-	}
-	
-	else
-	{
-		for (i = 0 ; i < digits - result_digits ; i++)
-        printf("0");
-	}
+	for (i = 0 ; i < digits - result_digits ; i++)
+    	printf("0");
+
+	printf("%d", comp);
 
     return 0;
 }
