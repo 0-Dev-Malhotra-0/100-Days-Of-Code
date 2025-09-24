@@ -53,10 +53,19 @@ int main()
 
     printf("1's complement : ");
     
-    for (i = 0 ; i < digits - result_digits ; i++)
+    if (comp != 0)
+    {
+    	for (i = 0 ; i < digits - result_digits ; i++)
         printf("0");
-
-    printf("%d", comp);
+	
+    	printf("%d", comp);
+	}
+	
+	else
+	{
+		for (i = 0 ; i < digits - result_digits ; i++)
+        printf("0");
+	}
 
     return 0;
 }
