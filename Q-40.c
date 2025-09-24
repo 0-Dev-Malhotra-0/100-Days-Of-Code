@@ -1,4 +1,4 @@
-/*Q40: Write a program to find the 1’s complement of a binary number and print it.
+/*Q40: Write a program to find the 1â€™s complement of a binary number and print it.
 
 Sample Test Cases:
 Input 1:
@@ -12,42 +12,51 @@ Output 2:
 0000
 */
 
-#include<stdio.h>
+#include <stdio.h>
 
 int main()
 {
-	int size ;
-	
-	printf("Enter the bit of binary number : ");
-	scanf("%d",&size);
-	
-	char binary[size + 1] ,  flip[size + 1];
-	int i , error = 0;
-	
-	printf("Enter a %d bit binary number : ",size);
-	scanf("%s",&binary);
-	
-	for(i=0 ; i<size ; i++)
-	{
-		if(binary[i] == '1')
-            flip[i] = '0';
-        else if(binary[i] == '0')
-            flip[i] = '1';
-        else
-        {
-		 printf("Invalid Input");
-         error = 1;
-         break;
-        }
-   }
-   
-   flip[size] = '\0';
-   
-   if (error != 1)
-   { 
-        printf("Original binary : %s\n", binary);
-        printf("1's complement  : %s", flip);
+    int num, temp, l_d, comp = 0, place = 1, digits = 0, result_digits = 0 , i ;
+
+    printf("Enter binary number : ");
+    scanf("%d", &num);
+
+    temp = num;
+
+    while (temp > 0)
+    {
+        digits++;
+        temp /= 10;
     }
+
+    temp = num;
+
+    while (temp > 0)
+    {
+        l_d = temp % 10;
+        
+        if (l_d == 0)
+            comp += 1 * place; 
+
+        place *= 10;
+        
+        temp /= 10;
+    }
+
+    temp = comp;
     
+    while (temp > 0)
+    {
+        result_digits++;
+        temp /= 10;
+    }
+
+    printf("1's complement : ");
+    
+    for (i = 0 ; i < digits - result_digits ; i++)
+        printf("0");
+
+    printf("%d", comp);
+
     return 0;
 }
