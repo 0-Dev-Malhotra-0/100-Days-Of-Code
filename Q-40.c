@@ -16,10 +16,10 @@ Output 2:
 
 int main()
 {
-    int num, temp, l_d, comp = 0, place = 1, digits = 0, result_digits = 0 , i ;
-
+    long long int num, temp, l_d, comp = 0, place = 1, digits = 0, result_digits = 0 , i ;
+	
     printf("Enter binary number : ");
-    scanf("%d", &num);
+    scanf("%lld", &num);
 
     temp = num;
 
@@ -56,14 +56,13 @@ int main()
         	temp /= 10;
    		}
 	}
-	
 
     printf("1's complement : ");
     
 	for (i = 0 ; i < digits - result_digits ; i++)
     	printf("0");
 
-	printf("%d", comp);
+	printf("%lld", comp);
 
     return 0;
 }
